@@ -4,6 +4,7 @@ import { createContext, useContext, useState, useEffect, useCallback } from 'rea
 const ApiContext = createContext();
 
 const API_URL = 'http://127.0.0.1:3000';
+const renderUrl = 'https://books-mean-app.onrender.com';
 
 export const ApiProvider = ({ children }) => {
     const [apiData, setApiData] = useState([]);
@@ -19,7 +20,7 @@ export const ApiProvider = ({ children }) => {
 
     const fetchData = async (endpoint, op) => {
         try {
-            const response = await fetch(`${API_URL}/${endpoint}`);
+            const response = await fetch(`${renderUrl}/${endpoint}`);
             const data = await response.json();
             // Ensure data is always an array
             if(op === 0)
