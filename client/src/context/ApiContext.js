@@ -46,7 +46,7 @@ export const ApiProvider = ({ children }) => {
 
     const postData = async (endpoint, formData, method) => {
         try {
-            const response = await fetch(`${API_URL}/${endpoint}`, {
+            const response = await fetch(`${renderUrl}/${endpoint}`, {
                 method: method,
                 headers: {
                     'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ export const ApiProvider = ({ children }) => {
     const deleteItem = async (id) => {
         try {
             // Envoyer la requête DELETE à votre API avec l'ID
-            await fetch(`${API_URL}/books/${id}`, {
+            await fetch(`${renderUrl}/books/${id}`, {
                 method: 'DELETE',
             });
 
