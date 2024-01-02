@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'SpaceMono-Bold';
+  src: url('../public/fonts/SpaceMono-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'SpaceMono-Italic';
+  src: url('../public/fonts/SpaceMono-Italic.ttf') format('truetype');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SpaceMono-Regular';
+  src: url('../public/fonts/SpaceMono-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: 'SpaceMono-Regular', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.bold-text {
+  font-family: 'SpaceMono-Bold', sans-serif;
+  font-weight: bold;
+}
+
+.italic-text {
+  font-family: 'SpaceMono-Italic', sans-serif;
+  font-style: italic;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de Produits - Détails du Produit</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Détails du Produit</h1>
+        <div class="card">
+            <div class="card-body" id="product-details">
+                <!-- Les détails du produit seront ajoutés ici via JavaScript -->
+            </div>
+        </div>
+        <a href="index.html" class="btn btn-secondary mt-3">Retour à la liste</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", async function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get("id");
+            const response = await fetch(`/produit/${productId}`);
+            if (response.ok) {
+                const product = await response.json();
+                const productDetails = document.getElementById("product-details");
+                productDetails.innerHTML = `
+                    <h5 class="card-title">${product.nom}</h5>
+                    <p class="card-text">Prix: ${product.prix}</p>
+                    <p class="card-text">${product.description}</p>
+                    <a href="modifier.html?id=${product._id}" class="btn btn-primary">Modifier</a>
+                `;
+            } else {
+                console.error("Erreur lors du chargement des détails du produit");
+            }
+        });
+    </script>
+</body>
+</html>

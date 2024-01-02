@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de Produits - Liste des Produits</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        .product-card {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Liste des Produits</h1>
+        <div class="container">
+            <h1>Liste des Produits</h1>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProductModal">
+                Ajouter un Produit
+            </button>
+
+            <div class="row" id="product-list">
+        
+        <div class="row" id="product-list">
+            <!-- Les produits seront ajoutés ici via JavaScript -->
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", async function() {
+            const response = await fetch("/tous-les-produits");
+            if (response.ok) {
+                const products = await response.json();
+                const productList = document.getElementById("product-list");
+                products.forEach(product => {
+                    const productCard = document.createElement("div");
+                    productCard.classList.add("col-md-4");
+                    productCard.innerHTML = `
+                        <div class="card product-card">
+                            <div class="card-body">
+                                <h5 class="card-title">${product.nom}</h5>
+                                <p class="card-text">Prix: ${product.prix}</p>
+                                <a href="details.html?id=${product._id}" class="btn btn-primary">Détails</a>
+                                <button onclick="deleteProduct('${product._id}')" class="btn btn-danger">Supprimer</button>
+                            </div>
+                        </div>
+                    `;
+                    productList.appendChild(productCard);
+                });
+            } else {
+                console.error("Erreur lors du chargement des produits");
+            }
+        });
+
+        async function deleteProduct(id) {
+            const response = await fetch(`/supprimer-produit/${id}`, {
+                method: "DELETE"
+            });
+            if (response.ok) {
+                location.reload();
+            } else {
+                console.error("Erreur lors de la suppression du produit");
+            }
+        }
+    </script>
+</body>
+</html>

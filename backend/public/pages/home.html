@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Page d'Accueil</title>
+    <!-- Ajouter le lien vers Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/app.css">
+    <script src="../js/script.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 p-4">
+            <!-- Contenu du bloc de gauche -->
+            <p class="font-weight-bold h5">Fonctionnalités.</p>
+            <ul>
+                <li class="feature-item" data-feature-id="books">Tous les livres</li>
+                <li class="feature-item" data-feature-id="pages">Pages 2</li>
+                <li class="feature-item" data-feature-id="rating">Rating</li>
+            </ul>
+        </div>
+        <div class="col-lg-8 p-4">
+            <!-- Contenu du bloc de gauche -->
+            <p class="h1 font-weight-bold">Details.</p>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <p> <span class="text-success font-weight-bold">#</span> <span class="font-weight-bold">Agrégation pour les statistiques</span> </p>
+                </div>
+            </div>
+            <div class="row col-md-12 rounded py-4">
+                <div class="col-md-6 col-12 shadow p-4 rounded btn text-left"
+                    data-toggle="modal" data-target="#infoModal">
+                    <div>
+                        <!-- Contenu du bloc de droite avec de l'ombre en background -->
+                        <p>
+                            <span class="font-weight-bold">~</span>
+                            <span class="text-warning font-weight-bold">{</span> 
+                            <span class="font-weight-bold">Gilead</span>
+                        </p>
+                        <p class="ml-4"> 
+                            <span>#</span> 
+                            <span class="font-weight-bold text-primary">isbn13 :</span> 
+                            9780002005883
+                        </p>
+                        <p class="ml-4"> 
+                            <span>#</span> 
+                            <span class="font-weight-bold text-primary">isbn10 :</span> 
+                            9780002005883
+                        </p>
+                        <p class="ml-4"> 
+                            <span>#</span> 
+                            <span class="font-weight-bold text-primary text-small">By </span> 
+                            Marilynne Robinson
+                        </p>
+                        <p class="ml-4">
+                            <span class="font-weight-bold text-primary badge badge-dark rounded text-light">Fiction</span>
+                        </p>
+                        <p>
+                            <span class="text-warning font-weight-bold">}</span> 
+                            <span class="font-weight-bold text-primary">~</span> 
+                            2004 | 247p
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Informations importantes</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Contenu du modal -->
+                <p> 
+                    <span>#</span> 
+                    <span class="font-weight-bold text-primary">Notes [</span>  361
+                    <span class="font-weight-bold text-primary">-/-</span>  3.85
+                    <span class="font-weight-bold text-primary">]</span>
+                </p>
+                <p> 
+                    <span>#</span> 
+                    <span class="font-weight-bold text-primary">description :</span> 
+                    A NOVEL THAT READERS and critics have been eagerly anticipating for over a decade, 
+                    Gilead is an astonishingly imagined story of remarkable lives. John Ames is a preacher, 
+                    the son of a preacher and the grandson (both maternal and paternal) of preachers. 
+                    It’s 1956 in Gilead, Iowa, towards the end of the Reverend Ames’s life, and he is absorbed in recording his family’s story, 
+                    a legacy for the young son he will never see grow up. Haunted by his grandfather’s presence, 
+                    John tells of the rift between his grandfather and his father: the elder, an angry visionary 
+                    who fought for the abolitionist cause, and his son, an ardent pacifist. He is troubled, too, 
+                    by his prodigal namesake, Jack (John Ames) Boughton, his best friend’s lost son who returns to 
+                    Gilead searching for forgiveness and redemption. Told in John Ames’s joyous, rambling voice that finds beauty, 
+                    humour and truth in the smallest of life’s details, Gilead is a song of celebration and acceptance of the best and 
+                    the worst the world has to offer. At its heart is a tale of the sacred bonds between fathers and sons, pitch-perfect 
+                    in style and story, set to dazzle critics and readers alike.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                <!-- Ajoutez d'autres boutons au besoin -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Ajouter le script Bootstrap JS et jQuery (nécessaire pour Bootstrap) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
