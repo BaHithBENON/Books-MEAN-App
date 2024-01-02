@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "export PATH=/opt/render/project/src/server/node_modules/.bin:$PATH && node server.js",
     "prestart": "chmod +x node_modules/.bin/nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
