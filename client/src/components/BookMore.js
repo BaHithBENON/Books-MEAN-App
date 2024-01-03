@@ -1,37 +1,67 @@
 // BookList.js
-import React from 'react';
+import React, { useState } from 'react'; 
+import { useLocation } from 'react-router-dom';
 
-const BookMore = ({ book }) => {
+const BookMore = () => {
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const [ book ] = useState(() => {
+        const bookParameter = searchParams.get('book');
+        return JSON.parse(bookParameter);
+    });
+    
+
     return (
-    <div class="modal fade" id={`infoModal${book.isbn13}`} tabindex="-1" role="dialog" 
-        aria-labelledby={`exModalLabel${book.isbn13}`} aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Informations importantes</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p> 
-                        <span>#</span> 
-                        <span class="font-weight-bold text-primary">Notes [</span>  {book.ratings_count}
-                        <span class="font-weight-bold text-primary">-/-</span> {book.average_rating}
-                        <span class="font-weight-bold text-primary">]</span>
-                    </p>
-                    <p> 
-                        <span>#</span> 
-                        <span class="font-weight-bold text-primary">description :</span> 
-                        {book.description}
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                </div>
+        <div className="container my-5">
+            <div className="modal-body">
+                <h3 className='ms-4 fw-bold my-4'>Plus de détails</h3>
+                <p className="ms-4"> 
+                    <span>#</span> 
+                    <span className="fw-bold font-weight-bold  text-primary">isbn13 : </span> 
+                    {book.title}
+                </p>
+                <p className="ms-4"> 
+                    <span>#</span> 
+                    <span className="fw-bold font-weight-bold  text-primary">isbn13 : </span> 
+                    {book.isbn13}
+                </p>
+                <p className="ms-4"> 
+                    <span>#</span> 
+                    <span className="fw-bold font-weight-bold  text-primary">isbn10 : </span> 
+                    {book.isbn10}
+                </p>
+                <p className="ms-4"> 
+                    <span>#</span> 
+                    <span className="fw-bold font-weight-bold  text-primary text-small">Autheurs : </span> 
+                    {book.authors}
+                </p>
+                <p className="ms-4"> 
+                    <span>#</span> 
+                    <span className="fw-bold font-weight-bold  text-primary text-small">Catégories : </span> 
+                    <span className="fw-bold text-primary badge bg-dark rounded text-light">{book.categories}</span>
+                </p>
+                <p className="ms-4"> 
+                    <span>#</span> 
+                    <span className="fw-bold font-weight-bold  text-primary text-small">Nombre de notes : </span> 
+                    {book.ratings_count}
+                </p>
+                <p className="ms-4"> 
+                    <span>#</span> 
+                    <span className="fw-bold font-weight-bold  text-primary text-small">Moyenne des notes : </span> 
+                    {book.average_rating}
+                </p>
+                <p className="ms-4"> 
+                    <span>#</span> 
+                    <span className="fw-bold font-weight-bold text-primary">Description : </span> 
+                    {book.description}
+                </p>
+                <p className="ms-4"> 
+                    <span>#</span> 
+                    <span className="fw-bold font-weight-bold text-primary">Thumbnail : </span> 
+                    {book.thumbnail}
+                </p>
             </div>
         </div>
-    </div>
     );
 };
 

@@ -4,16 +4,11 @@ import BookDetails from './BookDetails';
 import { useApi } from '../context/ApiContext';
 import { useNavigate } from 'react-router-dom';
 
-const DetailsSection = ({ onBookSelect }) => {
+const DetailsSection = () => {
     const navigate = useNavigate();
     const [refresh, setRefresh] = useState(false);
 
     const { apiData, selectedCategory } = useApi();
-
-    // Fonction pour gérer la sélection d'un livre
-    const handleBookSelect = (book) => {
-        onBookSelect(book);
-    };
 
     const handleNavigate = () => {
         // Naviguer vers la page AddBook avec les données du livre dans l'objet de requête
@@ -45,7 +40,7 @@ const DetailsSection = ({ onBookSelect }) => {
             </div>
             <div className="row col-md-12 rounded py-4">
                 {apiData.map((book) => (
-                    <BookDetails key={book.id} {...book} onRefresh={handleRefresh} onClick={() => handleBookSelect(book)} />
+                    <BookDetails key={book.id} {...book} onRefresh={handleRefresh} />
                 ))}
             </div>
         </div>

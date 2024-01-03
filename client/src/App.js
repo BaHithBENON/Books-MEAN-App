@@ -8,6 +8,7 @@ import Home from "./components/Home";
 
 import './App.css';
 import AddBook from './components/AddBook';
+import BookMore from './components/BookMore';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path='/add' element={<AddBook />} />
+            <Route path='/more' element={<BookMore />} />
         </Routes>
       </ApiProvider>
     </Router>

@@ -35,6 +35,32 @@ const BookDetails = ({ _id, title, isbn13, isbn10, authors, categories,
         navigate(`/add?book=${JSON.stringify(encodedBookData)}`);
     };
 
+    // Fonction pour gérer la sélection d'un livre
+    const handleBookSelect = (book) => {
+        // Créer un objet avec les données du livre
+        const bookData = {
+            _id,
+            title,
+            isbn13,
+            isbn10,
+            authors,
+            categories,
+            published_year,
+            num_pages,
+            description,
+            average_rating,
+            ratings_count,
+            thumbnail
+        };
+
+        // Encodage de chaque valeur pour l'URL
+        const encodedBookData = Object.entries(bookData).reduce((acc, [key, value]) => {
+            acc[key] = encodeURIComponent(value);
+            return acc;
+        }, {});
+        navigate(`/more?book=${JSON.stringify(encodedBookData)}`);
+    };
+
     const handleDelete = async () => {
         // Ajoutez ici la logique pour supprimer le livre
         await deleteItem(_id);
@@ -74,6 +100,7 @@ const BookDetails = ({ _id, title, isbn13, isbn10, authors, categories,
                 {published_year} | {num_pages}p <br></br>
                 <span className='text-danger badge bg-light' onClick={handleDelete}>Supprimer </span> 
                 <span className='text-danger badge bg-success text-light' onClick={handleNavigate}> Update</span>
+                <span className='text-danger badge bg-primary text-light' onClick={handleBookSelect}> Plus</span>
             </p> 
         </div>
     );
