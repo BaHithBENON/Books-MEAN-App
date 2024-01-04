@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const localDbUrl = 'mongodb://127.0.0.1:27017/books';
 const remoteDbUrl = 'mongodb+srv://saazhal:as19cdls@cluster0.o0gfwzg.mongodb.net/?retryWrites=true&w=majority';
-const renderUrl = 'https://books-mean-app.onrender.com';
 const connectDataBase = async () => {
     
     mongoose.connect(remoteDbUrl,

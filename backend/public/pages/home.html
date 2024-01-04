@@ -12,64 +12,212 @@
 <body>
 
 <div class="container">
+    <div class="row text-center font-weight-bold my-4">
+        <h3 class="font-weight-bold">Documentation de l'API</h3>
+    </div>
+    <div>
+        <h5 class="font-weight-bold">Introduction</h5>
+        Bienvenue dans la documentation de l'API de gestion de livres. 
+        Cette API fournit des fonctionnalités pour gérer les données de livres, y compris l'ajout, la mise à jour, 
+        la suppression, et la récupération d'informations spécifiques sur les livres.
+        <br>
+        <hr>
+    </div>
+    <div>
+        <h5 class="font-weight-bold">Points d'extrémité (Endpoints)</h5>
+        <p> <span class="font-weight-bold">Url Base</span> : 
+            <a href="https://books-mean-app.onrender.com">https://books-mean-app.onrender.com</a>
+        </p>
+    </div>
     <div class="row">
         <div class="col-lg-4 p-4">
             <!-- Contenu du bloc de gauche -->
-            <p class="font-weight-bold h5">Fonctionnalités.</p>
+            <p class="font-weight-bold h5">Récupérer toutes les données.</p>
             <ul>
-                <li class="feature-item" data-feature-id="books">Tous les livres</li>
-                <li class="feature-item" data-feature-id="pages">Pages 2</li>
-                <li class="feature-item" data-feature-id="rating">Rating</li>
+                <li class="feature-item" data-feature-id="books"><span class="font-weight-bold">Endpoint</span> : /books</li>
+                <li class="feature-item" data-feature-id="pages"><span class="font-weight-bold">Méthode</span> : GET</li>
+                <li class="feature-item" data-feature-id="rating"><span class="font-weight-bold">Description</span> : Récupère toutes les données des livres.</li>
             </ul>
         </div>
-        <div class="col-lg-8 p-4">
+        <div class="col-lg-4 p-4">
             <!-- Contenu du bloc de gauche -->
-            <p class="h1 font-weight-bold">Details.</p>
-            <br>
-            <div class="row">
-                <div class="col-md-12">
-                    <p> <span class="text-success font-weight-bold">#</span> <span class="font-weight-bold">Agrégation pour les statistiques</span> </p>
-                </div>
-            </div>
-            <div class="row col-md-12 rounded py-4">
-                <div class="col-md-6 col-12 shadow p-4 rounded btn text-left"
-                    data-toggle="modal" data-target="#infoModal">
-                    <div>
-                        <!-- Contenu du bloc de droite avec de l'ombre en background -->
-                        <p>
-                            <span class="font-weight-bold">~</span>
-                            <span class="text-warning font-weight-bold">{</span> 
-                            <span class="font-weight-bold">Gilead</span>
-                        </p>
-                        <p class="ml-4"> 
-                            <span>#</span> 
-                            <span class="font-weight-bold text-primary">isbn13 :</span> 
-                            9780002005883
-                        </p>
-                        <p class="ml-4"> 
-                            <span>#</span> 
-                            <span class="font-weight-bold text-primary">isbn10 :</span> 
-                            9780002005883
-                        </p>
-                        <p class="ml-4"> 
-                            <span>#</span> 
-                            <span class="font-weight-bold text-primary text-small">By </span> 
-                            Marilynne Robinson
-                        </p>
-                        <p class="ml-4">
-                            <span class="font-weight-bold text-primary badge badge-dark rounded text-light">Fiction</span>
-                        </p>
-                        <p>
-                            <span class="text-warning font-weight-bold">}</span> 
-                            <span class="font-weight-bold text-primary">~</span> 
-                            2004 | 247p
-                        </p>
-                    </div>
-                </div>
-                
-            </div>
+            <p class="font-weight-bold h5">Ajouter une nouvelle donnée.</p>
+            <ul>
+                <li class="feature-item" data-feature-id="books"><span class="font-weight-bold">Endpoint</span> : /books</li>
+                <li class="feature-item" data-feature-id="pages"><span class="font-weight-bold">Méthode</span> : POST</li>
+                <li class="feature-item" data-feature-id="rating"><span class="font-weight-bold">Description</span> : Ajoute une nouvelle donnée de livre.</li>
+                <li class="feature-item" data-feature-id="rating"><span class="font-weight-bold">Paramètres requis</span> : Les données du livre doivent être incluses dans le corps de la requête.</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 p-4">
+            <!-- Contenu du bloc de gauche -->
+            <p class="font-weight-bold h5">Récupérer une donnée spécifique.</p>
+            <ul>
+                <li class="feature-item" data-feature-id="books"><span class="font-weight-bold">Endpoint</span> : /books/:id</li>
+                <li class="feature-item" data-feature-id="pages"><span class="font-weight-bold">Méthode</span> : GET</li>
+                <li class="feature-item" data-feature-id="rating"><span class="font-weight-bold">Description</span> : Récupère une donnée de livre spécifique en utilisant l'identifiant.</li>
+            </ul>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-lg-4 p-4">
+            <!-- Contenu du bloc de gauche -->
+            <p class="font-weight-bold h5">Supprimer une donnée.</p>
+            <ul>
+                <li class="feature-item" data-feature-id="books"><span class="font-weight-bold">Endpoint</span> : /books/:id</li>
+                <li class="feature-item" data-feature-id="pages"><span class="font-weight-bold">Méthode</span> : DELETE</li>
+                <li class="feature-item" data-feature-id="rating"><span class="font-weight-bold">Description</span> : 
+                    Supprime une donnée de livre en utilisant l'identifiant.
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-4 p-4">
+            <!-- Contenu du bloc de gauche -->
+            <p class="font-weight-bold h5">Mettre à jour une donnée existante.</p>
+            <ul>
+                <li class="feature-item" data-feature-id="books"><span class="font-weight-bold">Endpoint</span> : /books/:id</li>
+                <li class="feature-item" data-feature-id="pages"><span class="font-weight-bold">Méthode</span> : PUT</li>
+                <li class="feature-item" data-feature-id="rating"><span class="font-weight-bold">Description</span> : Met à jour une donnée de livre existante en utilisant l'identifiant.</li>
+                <li class="feature-item" data-feature-id="rating"><span class="font-weight-bold">Paramètres requis</span> : 
+                    Les nouvelles données du livre doivent être incluses dans le corps de la requête.
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-4 p-4">
+            <!-- Contenu du bloc de gauche -->
+            <p class="font-weight-bold h5">Récupérer les livres par catégorie.</p>
+            <ul>
+                <li class="feature-item" data-feature-id="books"><span class="font-weight-bold">Endpoint</span> : /books/category/:category</li>
+                <li class="feature-item" data-feature-id="pages"><span class="font-weight-bold">Méthode</span> : GET</li>
+                <li class="feature-item" data-feature-id="rating"><span class="font-weight-bold">Description</span> : Récupère les livres appartenant à une catégorie spécifique.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 p-4">
+            <!-- Contenu du bloc de gauche -->
+            <p class="font-weight-bold h5">Récupérer les livres par année.</p>
+            <ul>
+                <li class="feature-item" data-feature-id="books"><span class="font-weight-bold">Endpoint</span> : /books/year/:year</li>
+                <li class="feature-item" data-feature-id="pages"><span class="font-weight-bold">Méthode</span> : GET</li>
+                <li class="feature-item" data-feature-id="rating"><span class="font-weight-bold">Description</span> : 
+                    Récupère les livres publiés une année spécifique.
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-4 p-4">
+            <!-- Contenu du bloc de gauche -->
+            <p class="font-weight-bold h5">Récupérer les livres par note moyenne.</p>
+            <ul>
+                <li class="feature-item" data-feature-id="books"><span class="font-weight-bold">Endpoint</span> : /books/rating</li>
+                <li class="feature-item" data-feature-id="pages"><span class="font-weight-bold">Méthode</span> : GET</li>
+                <li class="feature-item" data-feature-id="rating"><span class="font-weight-bold">Description</span> : 
+                    Récupère les livres triés par note moyenne décroissante.
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-4 p-4">
+            <!-- Contenu du bloc de gauche -->
+            <p class="font-weight-bold h5">Pagination des résultats.</p>
+            <ul>
+                <li class="feature-item" data-feature-id="books"><span class="font-weight-bold">Endpoint</span> : /books/paginated</li>
+                <li class="feature-item" data-feature-id="pages"><span class="font-weight-bold">Méthode</span> : GET</li>
+                <li class="feature-item" data-feature-id="rating"><span class="font-weight-bold">Description</span> : 
+                    Récupère les livres paginés en fonction du numéro de page et de la taille de la page.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 p-4">
+            <!-- Contenu du bloc de gauche -->
+            <p class="font-weight-bold h5">Moyenne des notes de tous les livres.</p>
+            <ul>
+                <li class="feature-item" data-feature-id="books"><span class="font-weight-bold">Endpoint</span> : /books/average-rating</li>
+                <li class="feature-item" data-feature-id="pages"><span class="font-weight-bold">Méthode</span> : GET</li>
+                <li class="feature-item" data-feature-id="rating"><span class="font-weight-bold">Description</span> : 
+                    Récupère la moyenne des notes de tous les livres.
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-4 p-4">
+            <!-- Contenu du bloc de gauche -->
+            <p class="font-weight-bold h5">Filtrage par nombre de pages.</p>
+            <ul>
+                <li class="feature-item" data-feature-id="books"><span class="font-weight-bold">Endpoint</span> : /books/pages</li>
+                <li class="feature-item" data-feature-id="pages"><span class="font-weight-bold">Méthode</span> : GET</li>
+                <li class="feature-item" data-feature-id="rating"><span class="font-weight-bold">Description</span> : 
+                    Récupère les livres avec un nombre de pages supérieur ou égal à la valeur spécifiée.
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-4 p-4">
+            <!-- Contenu du bloc de gauche -->
+            <p class="font-weight-bold h5">Statistiques générales.</p>
+            <ul>
+                <li class="feature-item" data-feature-id="books"><span class="font-weight-bold">Endpoint</span> : /books/statistics</li>
+                <li class="feature-item" data-feature-id="pages"><span class="font-weight-bold">Méthode</span> : GET</li>
+                <li class="feature-item" data-feature-id="rating"><span class="font-weight-bold">Description</span> : 
+                    Récupère des statistiques générales, telles que le nombre total de livres et la note moyenne.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-4 p-4">
+            <!-- Contenu du bloc de gauche -->
+            <p class="font-weight-bold h5">Recherche texte intégral.</p>
+            <ul>
+                <li class="feature-item" data-feature-id="books"><span class="font-weight-bold">Endpoint</span> : /books/search</li>
+                <li class="feature-item" data-feature-id="pages"><span class="font-weight-bold">Méthode</span> : GET</li>
+                <li class="feature-item" data-feature-id="rating"><span class="font-weight-bold">Description</span> : 
+                    Effectue une recherche texte intégral basée sur un mot-clé.
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-4 p-4">
+            <!-- Contenu du bloc de gauche -->
+            <p class="font-weight-bold h5">Récupérer toutes les catégories de livres.</p>
+            <ul>
+                <li class="feature-item" data-feature-id="books"><span class="font-weight-bold">Endpoint</span> : /books/categories</li>
+                <li class="feature-item" data-feature-id="pages"><span class="font-weight-bold">Méthode</span> : GET</li>
+                <li class="feature-item" data-feature-id="rating"><span class="font-weight-bold">Description</span> : 
+                    Récupère toutes les catégories de livres disponibles.
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-4 p-4">
+            <!-- Contenu du bloc de gauche -->
+            <p class="font-weight-bold h5">Récupérer tous les auteurs de livres.</p>
+            <ul>
+                <li class="feature-item" data-feature-id="books"><span class="font-weight-bold">Endpoint</span> : /books/authors</li>
+                <li class="feature-item" data-feature-id="pages"><span class="font-weight-bold">Méthode</span> : GET</li>
+                <li class="feature-item" data-feature-id="rating"><span class="font-weight-bold">Description</span> : 
+                    Récupère tous les auteurs de livres disponibles.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 p-4">
+            <!-- Contenu du bloc de gauche -->
+            <p class="font-weight-bold h5">Récupérer toutes les années de publications de livres.</p>
+            <ul>
+                <li class="feature-item" data-feature-id="books"><span class="font-weight-bold">Endpoint</span> : /books/years</li>
+                <li class="feature-item" data-feature-id="pages"><span class="font-weight-bold">Méthode</span> : GET</li>
+                <li class="feature-item" data-feature-id="rating"><span class="font-weight-bold">Description</span> : 
+                    Récupère toutes les années de publications de livres disponibles.
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <br><br><br>
 </div>
 
