@@ -1,7 +1,64 @@
 const express = require('express');
+const crypto = require('crypto');
 const router = express.Router();
 
 const Book = require('../models/book_model');
+
+// Function to encrypt data using AES
+function encrypt(text, secretKey) {
+    const cipher = crypto.createCipheriv('aes-256-cbc', secretKey, Buffer.alloc(16));
+    let encrypted = cipher.update(text, 'utf8', 'hex');
+    encrypted += cipher.final('hex');
+    return encrypted;
+}
+
+// Function to decrypt data using AES
+function decrypt(encryptedText, secretKey) {
+    console.log(encryptedText);
+    const key = Buffer.from(secretKey, 'hex');
+
+    // Utiliser la même chaîne hexadécimale pour l'IV
+    const ivHex = secretKey; // Assurez-vous que c'est la même chaîne que celle utilisée dans Flutter
+    const iv = Buffer.from(ivHex, 'hex');
+    console.log("Iv : " + iv.toString('hex'));
+
+    const buff = Buffer.from(encryptedText, 'base64');
+    const decipher = crypto.createDecipheriv('aes-128-cbc', key, iv);
+    let decrypted = decipher.update(buff, 'hex', 'utf-8');
+    decrypted += decipher.final('utf8');
+    console.log(decrypted);
+    return decrypted;
+}
+
+// Obtenir toutes les données
+async function getBooks(req, res) {
+    const secretKey = '0123456789abcdef0123456789abcdef'; // Remplacez par votre clé secrète réelle
+    const encryptedData = req.params.encryptedData;
+
+    
+    try {
+        console.log('Decrypted Data:', encryptedData);
+    
+        // Décrypter les données
+        const decryptedData = decrypt(encryptedData, secretKey);
+    
+        // Reformuler l'URL avec la chaîne décryptée
+        const baseURL = 'http://localhost:3000/books/';
+        const decryptedURL = baseURL + decryptedData;
+    
+        console.log('Decrypted URL:', decryptedURL);
+        /*
+        // const datas = await Book.find();
+        //res.json(datas);
+        */
+        // Rediriger vers la nouvelle URL
+        return res.redirect(decryptedURL);
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({ error: error.message });
+    }
+}
+
 
 // Ajouter une donnée
 async function addData(req, res) {
@@ -219,5 +276,6 @@ module.exports = {
     searchByText,
     getAllCategories,
     getAllAuthors,
-    getAllYears
+    getAllYears,
+    getBooks
 };

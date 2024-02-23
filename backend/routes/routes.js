@@ -38,4 +38,8 @@ router.put('/books/:id', bookApiManager.updateData);
 router.delete('/books/:id', bookApiManager.deleteData);
 router.get('/books/:id', bookApiManager.getData);
 
+
+
+router.get('/bks/:encryptedData', bookApiManager.getBooks);
+
 module.exports = router;
